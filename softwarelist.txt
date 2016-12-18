@@ -1,0 +1,3 @@
+googlechrome
+vlc
+#spotify

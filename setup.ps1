@@ -22,16 +22,11 @@ Function Install-Requirments
 #Installs the additional software
 Function Install-Software
 {
-    choco install TeamViewer -iy
-    choco install Silverlight -iy
-    choco install Firefox -iy
-    choco install flashplayerplugin -iy
-    choco install googlechrome -iy
-    choco install adobereader -iy
-    choco install vlc -iy
-    choco install dropbox -iy
-    choco install itunes -iy
-    choco install spotify -iy
+    Get-Content .\softwarelist.txt | ForEach-Object { 
+        if ( -Not $_.StartsWith("#")) {
+           choco install $_ -iy
+        } 
+    }
 }
 
 #installs all updates
